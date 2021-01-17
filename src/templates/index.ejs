@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomelo coding challenges</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+<div class="ui container">
+
+    <h1 class="ui header">Result</h1>
+
+    <div class="ui divider"></div>
+
+    <table class="ui single line table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Create at</th>
+            <th>Star</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% for(let i = 0; i < data['items'].length; i++){ %>
+            <tr>
+                <td>
+                    <%= data['items'][i]['name'] %>
+                </td>
+                <td>
+                    <%= data['items'][i]['created_at'] %>
+                </td>
+                <td>
+                    <%= data['items'][i]['stargazers_count'] %>
+                </td>
+                <td>
+                    <%= data['items'][i]['owner']['login'] %>
+                </td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <% if(data['prevPage']) {%>
+        <input type="button" onclick="location.href='./view?pageno=<%= data['prevPage']%>';" value="Previous" />
+    <% }%>
+    <% if(data['nextPage']) {%>
+        <input type="button" onclick="location.href='./view?pageno=<%= data['nextPage']%>';" value="Next" />
+    <% }%>
+<!--    <button>Previous</button>-->
+<!--    <button>Next</button>-->
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+
+</html>

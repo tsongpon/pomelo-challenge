@@ -1,0 +1,5 @@
+{
+  "search_keyword": "nodejs",
+  "page_size": 10,
+  "github_api_base_url": "https://api.local.mockgithub.com"
+}

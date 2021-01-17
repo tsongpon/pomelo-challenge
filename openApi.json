@@ -1,0 +1,65 @@
+{
+  "swagger": "2.0",
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "tags": [
+          "health"
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "health checking"
+          }
+        }
+      }
+    },
+    "/v1/solution-one": {
+      "post": {
+        "operationId": "postV1Solutionone",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "v1"
+        ],"responses": {
+          "400": {
+            "description": "BadRequest"
+          }
+        },
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "JSON payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SolutiononeInput"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "SolutiononeInput": {
+      "type": "object"
+    }
+  }
+}
